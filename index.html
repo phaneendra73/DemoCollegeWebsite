@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navbar with Separate Sections</title>
+  <!-- <link rel="stylesheet" href="style.css"> -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body Styling */
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    /* Navbar Styling */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #f8f9fa;
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+    /* Brand Name */
+    .navbar-brand {
+      font-size: 46px;
+      color: #ff7426;
+      text-decoration: none;
+      position: relative;
+      left: 150px;
+    }
+
+    .navbar-brand:hover {
+      cursor: pointer;
+    }
+
+    /* Navigation Links */
+    .navbar-links {
+      display: flex;
+      gap: 20px;
+      font: normal normal 600 18px/16px Montserrat;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: #333;
+    }
+
+    /* Sign In Button */
+    .signin-btn {
+      padding: 4px 6px;
+      background: #ff7426 0% 0% no-repeat padding-box;
+      border: 2px solid #ffffff;
+      border-radius: 5px;
+      opacity: 1;
+      font: normal normal 600 16px/20px 'Mulish';
+      letter-spacing: 0px;
+      color: #ffffff;
+      opacity: 1;
+      margin-right: 100px;
+    }
+
+
+    .Collegecontainer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 50px;
+      background-color: #fffbf5;
+      height: 90vh;
+      position: relative;
+    }
+
+    .text-section {
+      max-width: 40%;
+      margin-left: 120px;
+    }
+
+    .text-section h1 {
+      font-size: 2.6rem;
+      margin: 0;
+      color: #333;
+    }
+
+    .text-section span {
+      color: #ff6600;
+      font-weight: bold;
+      font-size: 3rem;
+    }
+
+    .text-section p {
+      font-size: 16px;
+      margin: 20px 0;
+      margin-left: auto;
+      margin-right: auto;
+      width: 360px;
+    }
+
+    .text-section button {
+      background-color: #000;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    /* Images Section Styling */
+    .images-section {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(2, 200px);
+      gap: 10px;
+      margin-right: 120px;
+    }
+
+    .images-section img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      z-index: 1000;
+    }
+
+    .circleimage {
+      position: absolute;
+      width: 170px;
+      height: 170px;
+      top: 10%;
+      left: 90%;
+      transform: translate(-50%, -50%);
+    }
+
+    .imgcircledot {
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      left: 99%;
+      transform: translate(-50%, -50%);
+      background-color: #F9BD15;
+      z-index: 1001;
+      border-radius: 50%;
+    }
+
+    .circledot {
+      width: 20px;
+      height: 20px;
+      background-color: #F9BD15;
+      z-index: 1001;
+      border-radius: 50%;
+    }
+
+    .circle-bottom-extra {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #ffcc80;
+      top: 80%;
+      left: 45%;
+      z-index: 2000;
+    }
+
+    .circle-bottom-small {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: #ffcc80;
+      top: 73%;
+      left: 48%;
+      z-index: 2000;
+    }
+
+
+    .hash-container-right {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      top: 66%;
+      right: 6%;
+      z-index: 1002;
+    }
+
+    .hash-container-left {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      top: 16%;
+      left: 56%;
+      z-index: 1002;
+    }
+
+    .line {
+      position: absolute;
+      background-color: #f4e6b3;
+    }
+
+    /* Vertical lines */
+    .vertical-1 {
+      width: 5px;
+      height: 100%;
+      top: 0;
+      left: 30%;
+    }
+
+    .vertical-2 {
+      width: 5px;
+      height: 100%;
+      top: 0;
+      left: 70%;
+    }
+
+    /* Horizontal lines */
+    .horizontal-1 {
+      height: 5px;
+      width: 100%;
+      top: 25%;
+      left: 0;
+    }
+
+    .horizontal-2 {
+      height: 5px;
+      width: 100%;
+      top: 50%;
+      left: 0;
+    }
+
+    .horizontal-3 {
+      height: 5px;
+      width: 100%;
+      top: 75%;
+      left: 0;
+    }
+
+    .bolgConatiner {
+      margin: 100px;
+      background-color: #F8FAFA;
+    }
+
+    .blogName {
+      text-align: center;
+      font: normal normal 800 28px/32px 'Mulish';
+      letter-spacing: 0.77px;
+      color: #FF7426;
+      text-shadow: 0px 3px 6px #00000029;
+      opacity: 1;
+      padding-top: 40px;
+
+
+    }
+
+    .bolgConatiner p {
+      margin-top: 20px;
+      margin-left: auto;
+      margin-right: auto;
+      width: 580px;
+      text-align-last: center;
+      font: normal normal 300 18px/24px Mulish;
+      letter-spacing: 0.38px;
+      color: #353535;
+      opacity: 1;
+    }
+
+
+    .blogImgContainer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      width: 90%;
+      margin-top: 40px;
+      margin: 5%;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      width: 30%;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .cardImg {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .cardHead {
+      text-align: left;
+      font: normal normal 800 20px/22px Mulish;
+      letter-spacing: 0.38px;
+      color: #FF7426;
+      opacity: 1;
+    }
+
+    .cardContent {
+      padding: 10px;
+    }
+
+    .cardText {
+      margin-top: 14px;
+      text-align: left;
+      font: normal normal 300 14px/16px Mulish;
+      letter-spacing: 0.26px;
+      color: #353535;
+      opacity: 1;
+    }
+
+    .readMore {
+      text-align: left;
+      font: normal normal bold 16px/36px Mulish;
+      letter-spacing: 0.29px;
+      color: #000000;
+      opacity: 1;
+      margin-left: 70%;
+      text-decoration: none;
+    }
+
+    .readMore:hover {
+      text-decoration: underline;
+    }
+
+    .UniqueContainer {
+      background-color: #fffbf5;
+      box-shadow: 0px 0px 20px #0000000D;
+      opacity: 1;
+    }
+
+    .UniqueContainer p {
+      margin-top: 20px;
+      margin-left: auto;
+      margin-right: auto;
+      width: 960px;
+      text-align-last: center;
+      text-align: center;
+      font: normal normal 600 18px/24px Mulish;
+      letter-spacing: 0.38px;
+      color: #353535;
+      opacity: 1;
+    }
+
+    .featuresSection {
+      margin: 80px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .featuresGrid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 20px;
+      width: 70%;
+      align-items: flex-start;
+    }
+
+    .feature {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 20px;
+      justify-content: flex-start;
+    }
+
+    .feature .icon {
+      margin-bottom: 15px;
+      align-self: flex-start;
+    }
+
+    .feature .label {
+      font: normal normal bold 16px/18px Poppins;
+      color: #353535;
+      text-transform: capitalize;
+      opacity: 1;
+      margin-left: 0;
+      width: 100%;
+      /* Allow label to take the full width */
+    }
+
+    .feature p {
+      font: normal normal normal 12px/16px Poppins;
+      letter-spacing: 1.09px;
+      color: #000000;
+      opacity: 1;
+      width: 80%;
+      margin-left: 0;
+      align-self: flex-start;
+      text-align: start;
+      margin-top: 5px;
+
+    }
+
+    .featuresImage {
+      flex: 1;
+      max-width: 400px;
+      padding-left: 20px;
+
+    }
+
+    .featuresImage img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-top: 0;
+    }
+
+
+    .DemoContainer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+      background-color: #F8FAFA;
+      padding: 60px;
+    }
+
+    .imageContainer {
+      width: 40%;
+      /* Set the image container width to 40% */
+      display: flex;
+      justify-content: center;
+      /* Center the image horizontally */
+      align-items: center;
+      /* Center the image vertically */
+    }
+
+    .imageContainer img {
+      width: 90%;
+      /* Adjust the image width */
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .formContainer {
+      width: 60%;
+      /* Set the form container width to 60% */
+      display: flex;
+      justify-content: center;
+      /* Center the form horizontally */
+      align-items: flex-start;
+      /* Align form to the top */
+    }
+
+    .formContainer2 {
+      width: 10%;
+    }
+
+    .formContainer form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      width: 100%;
+      /* Make form take full width */
+      max-width: 600px;
+      /* Optional: Limit the max width of the form */
+      text-align: center;
+      /* Center text */
+    }
+
+    .formSection {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      /* Align input fields in the center */
+    }
+
+    .formSection input,
+    .formSection select {
+      padding: 12px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      opacity: 0.8;
+      width: 70%;
+    }
+
+    .formSection input::placeholder,
+    .formSection select::placeholder {
+      text-align: left;
+      font: normal normal normal 16px/48px Poppins;
+      letter-spacing: 0px;
+      color: #353535;
+      opacity: 0.7;
+    }
+
+    .formContainer h1 {
+      text-align: center;
+      font: normal normal 900 36px/38px Poppins;
+      letter-spacing: 0.77px;
+      margin-bottom: 20px;
+      /* Space below the heading */
+    }
+
+    .formContainer h5 {
+      font: normal normal 600 20px/12px Poppins;
+      letter-spacing: 0.38px;
+      color: #707070;
+      opacity: 1;
+      margin-bottom: 20px;
+    }
+
+    .formContainer span {
+      color: #ff6600;
+    }
+
+    /* Styling for the button inside the form */
+    .formContainer button {
+      font: normal normal 900 12px/14px Mulish;
+      letter-spacing: 0.35px;
+      color: #F8FAFA;
+      background: #FF7426 0% 0% no-repeat padding-box;
+      opacity: 1;
+      width: 50%;
+      padding: 14px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 10px;
+      margin-left: 25%;
+    }
+
+    .storeConatiner {
+      background-color: #fffbf5;
+    }
+
+
+    /* Basic container setup */
+    .store {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding: 50px;
+      background-color: #F8FAFA;
+    }
+
+    .store .formContainer {
+      width: 45%;
+      /* Adjusts the width to 45% */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .store .formContainer h2 {
+      margin-bottom: 10px;
+      text-align: left;
+      font: normal normal bold 28px/24px Poppins;
+      letter-spacing: 1.18px;
+      color: #FF7426;
+      opacity: 1;
+    }
+
+    .store .formContainer p {
+      text-align: left;
+      font: normal normal normal 16px/18px Poppins;
+      letter-spacing: 1.00px;
+      color: #707070;
+      opacity: 1;
+      width: 50%;
+    }
+
+    .store .inputSection {
+      display: flex;
+      align-items: center;
+      /* Vertically center the items */
+      margin-top: 20px;
+      gap: 0;
+      /* Remove any gap between the elements */
+    }
+
+    .store .countryCode {
+      width: 20%;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      border-right: none;
+      /* Slight space between country code and phone number */
+    }
+
+    #mobileNumber {
+      font-size: 16px;
+      padding: 10px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      border-left: none;
+      /* Slight space between mobile number and submit button */
+    }
+
+    .store .submitBtn {
+      padding: 13px;
+      background-color: #FF7426;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      text-transform: uppercase;
+      margin-left: 0px;
+      margin-top: 0px;
+      margin-right: 90px;
+    }
+
+    .store .imageContainer {
+      width: 45%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .store .imageContainer img {
+      width: 80%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+
+    .store .downloadSection h3 {
+      font-family: 'Mulish', sans-serif;
+      font-size: 22px;
+      font-weight: 900;
+      margin-bottom: 20px;
+    }
+
+
+
+
+    .store h3 {
+      text-align: left;
+      font: normal normal bold 18px/18px Poppins;
+      letter-spacing: 1.22px;
+      color: #FF7426;
+      opacity: 1;
+    }
+
+    .downloadButtons {
+      display: flex;
+      gap: 10px;
+      /* Space between the buttons */
+    }
+
+    .downloadBtn {
+      display: flex;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #353535;
+      border-radius: 10px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      width: 37%;
+    }
+
+    .downloadBtn i {
+      margin-right: 10px;
+
+    }
+
+    .downloadIcon {
+      width: 40px;
+      height: auto;
+      margin-right: 10px;
+      /* Space between the icon and the text */
+    }
+
+    /* Footer Reset */
+    footer {
+      background-color: #f8f9fa;
+      padding: 20px;
+      color: #333;
+    }
+
+    /* Top Section */
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    /* First Div - Brand and Social Icons */
+    .brand-social {
+      flex: 1;
+    }
+
+    .footer-brand {
+      margin-bottom: 10px;
+      font: normal normal 200 69px/91px Mulish;
+      font-weight: 300;
+      color: #FF7426;
+      margin-left: 80px;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 15px;
+      margin-left: 100px;
+      margin-top: 20px;
+    }
+
+    .social-icons img {
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+    }
+
+    /* Second Div - Links Section */
+    .footer-links {
+      flex: 2;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .footer-links .column {
+      flex: 1;
+      margin: 0 10px;
+    }
+
+    .footer-links .column h3 {
+      font: normal normal bold 14px/20px Poppins;
+      letter-spacing: 0px;
+      color: #353535;
+      text-transform: uppercase;
+      opacity: 1;
+    }
+
+    .footer-links .column p {
+      font: normal normal normal 16px/24px Poppins;
+      letter-spacing: 0px;
+      color: #707070;
+      opacity: 1;
+      padding: 10px;
+    }
+
+    /* Bottom Section */
+    .footer-bottom {
+      text-align: center;
+      padding-top: 10px;
+    }
+
+    .footer-bottom hr {
+      border: 0;
+      height: 1px;
+      background-color: #ccc;
+      margin-bottom: 10px;
+    }
+
+    .footer-bottom p {
+      text-align: center;
+      font: normal normal normal 16px/24px Poppins;
+      letter-spacing: 1.09px;
+      color: #353535;
+      opacity: 1;
+
+    }
+
+    .footer-p {
+      text-align: left;
+      font: normal normal normal 14px/16px Poppins;
+      letter-spacing: 0.95px;
+      color: #707070;
+      opacity: 1;
+      margin-left: 80px;
+      width: 70%;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="container">
+      <!-- Brand Name -->
+      <a href="#" class="navbar-brand">Luringo</a>
+
+      <!-- Navigation Links -->
+      <div class="navbar-links">
+        <a href="#" class="nav-link">Course</a>
+        <a href="#" class="nav-link">About Us</a>
+        <a href="#" class="nav-link">Testimonals</a>
+        <a href="#" class="nav-link">Achievement</a>
+      </div>
+
+      <!-- Sign In Button -->
+      <button class="signin-btn">Sign In</button>
+    </div>
+  </nav>
+
+  <!-- College Section -->
+
+  <div class="Collegecontainer">
+    <div class="text-section">
+      <h1>Get Into </br><span>Dream College</span></h1>
+      <p><strong>Affordable SAT, ACT, PSAT and AP Test Prep That Raises Test Scores.</strong></p>
+      <button>Book Free Session</button>
+    </div>
+    <div class="circle-bottom-extra"></div>
+    <div class="circle-bottom-small"></div>
+
+    <div class="hash-container-right">
+      <div class="line vertical-1"></div>
+      <div class="line vertical-2"></div>
+      <div class="line horizontal-1"></div>
+      <div class="line horizontal-2"></div>
+      <div class="line horizontal-3"></div>
+    </div>
+
+    <div class="hash-container-left">
+      <div class="line vertical-1"></div>
+      <div class="line vertical-2"></div>
+      <div class="line horizontal-1"></div>
+      <div class="line horizontal-2"></div>
+      <div class="line horizontal-3"></div>
+    </div>
+
+    <div class="images-section">
+      <img src="assests/student1img.png" alt="Student 1">
+      <img src="assests/student2img.png" alt="Student 2">
+      <img src="assests/student3img.png" alt="Student 3">
+      <img src="assests/student4img.png" alt="Student 4">
+      <div class="circleimage">
+        <img src="assests/imagesCircle.svg" alt="Student 1">
+      </div>
+      <div class="imgcircledot"></div>
+
+    </div>
+  </div>
+  <div class="bolgConatiner">
+    <div class="blogName">
+      Luringo Blog
+    </div>
+    <p>
+      Let's see why SAT has achieved an edge, Have a detailed view of
+      our student projects, success stories, and more.
+    </p>
+    <div class="blogImgContainer">
+      <div class="card">
+        <img src="assests/blogimg1.png" alt="Blog Image 1" class="cardImg">
+        <div class="cardContent">
+          <div class="cardHead">Summary of SAT 2023 Results</div>
+          <div class="cardText">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+            invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
+            dolores et ea rebum. Stet.</div>
+          <a href="#" class="readMore">Read More</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="assests/blogimg2.png" alt="Blog Image 2" class="cardImg">
+        <div class="cardContent">
+          <div class="cardHead">Our performance in SAT 2023</div>
+          <div class="cardText">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+            invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
+            dolores et ea rebum. Stet.</div>
+          <a href="#" class="readMore">Read More</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="assests/blogimg3.png" alt="Blog Image 3" class="cardImg">
+        <div class="cardContent">
+          <div class="cardHead">SAT 2023 Toppers Talk</div>
+          <div class="cardText">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+            invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
+            dolores et ea rebum. Stet.</div>
+          <a href="#" class="readMore">Read More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="UniqueContainer">
+    <div class="blogName">
+      What's Unique with Lurnigo
+    </div>
+    <p>
+      With Lurnigo you can completely re-write your career. No prior specific background/experience needed. Only
+      willingness to put in efforts is required. We prioritize on teaching excellence above all else.
+    </p>
+    <div class="featuresSection">
+      <div class="featuresGrid">
+        <div class="feature">
+          <img class="icon" src="/assests/trophy.png">
+          <div class="label">Live Online Classes</div>
+          <p>Live interactive classes, on your comfort of location</p>
+        </div>
+        <div class="feature">
+          <img class="icon" src="/assests/doubt.png">
+          <div class="label">1:1 Doubt Solving</div>
+          <p>Personal Doubt solving classes, 1:1 mentoring for Different exams.</p>
+        </div>
+        <div class="feature">
+          <img class="icon" src="/assests/weekly.png">
+          <div class="label">Weekly Online Tests</div>
+          <p>Daily practice paper after every class, and weekly online test for each subject.</p>
+
+        </div>
+        <div class="feature">
+          <img class="icon" src="/assests/practice.png">
+          <div class="label">Practice Till Perfection!</div>
+          <p>Subject wise question banks with varying difficulty levels, solutions and previous year question papers.
+          </p>
+        </div>
+        <div class="feature">
+          <img class="icon" src="/assests/insight.png">
+          <div class="label">Insights, Summary, Recommendations</div>
+          <p>Meticulous performance tracking to create progress reports and get recommendations on topics to focus.</p>
+        </div>
+        <div class="feature">
+          <img class="icon" src="/assests/ciruculum.png">
+          <div class="label">Curriculum Mapped Learning</div>
+          <p>Meticulous performance tracking to create progress reports and get recommendations on topics to focus.</p>
+        </div>
+      </div>
+      <div class="featuresImage">
+        <img src="assests/featureimg.png" alt="Feature Image" />
+      </div>
+    </div>
+  </div>
+  <div class="DemoContainer ">
+    <!-- First div with image -->
+    <div class="imageContainer">
+      <img src="assests/demo.png" alt="Image" />
+    </div>
+    <div class="formContainer2"></div>
+    <!-- Second div with form -->
+    <div class="formContainer">
+      <form>
+        <h1>Book Your <span>Free Demo</span> Session</h1>
+        <h5>Get a free academic counselling session</h5>
+
+        <div class="formSection">
+          <input type="text" id="name" placeholder="Enter your name" required />
+        </div>
+
+        <div class="formSection">
+          <input type="tel" id="mobile" placeholder="Enter your mobile number" required />
+        </div>
+
+        <div class="formSection">
+          <select id="dropdown" placeholder="Select Your Class">
+            <option value="" selected disabled>Select Your Class</option>
+          </select>
+        </div>
+
+        <button type="submit">Book a Free Demo</button>
+      </form>
+    </div>
+
+  </div>
+  <div class="storeConatiner">
+    <div class="waves"><img src="assests/waves.png" alt="Image" /></div>
+    <div class="store">
+      <!-- Left side: Form and inputs -->
+      <div class="formContainer">
+        <h2>Classroom In Your Pocket</h2>
+        <p>Choose Your Courses & Grow Your Career with All New Lurnigo App</p>
+
+        <div class="store">
+          <div class="inputSection">
+            <!-- Country code and phone number input -->
+            <input type="text" id="countryCode" placeholder="+1" class="countryCode" />
+            <input type="tel" id="mobileNumber" placeholder="Enter mobile number" required />
+            <button type="submit" class="submitBtn">Get Started</button>
+          </div>
+        </div>
+        <!-- Download section -->
+        <div class="downloadSection">
+          <h3>Download App Now</h3>
+          <div class="downloadButtons">
+            <a href="#" class="downloadBtn">
+              <img src="assests/playstore.svg" alt="Play Store" class="downloadIcon" /> Get it on Play Store
+            </a>
+            <a href="#" class="downloadBtn">
+              <img src="assests/apple.svg" alt="App Store" class="downloadIcon" /> Get it on App Store
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="imageContainer">
+        <img src="assests/device.png" alt="Image" />
+      </div>
+    </div>
+  </div>
+  </div>
+
+</body>
+<footer>
+  <!-- First Section -->
+  <div class="footer-top">
+    <div class="brand-social">
+      <h2 class="footer-brand ">Lurnigu</h2>
+      <p class="footer-p ">Let’s grow up your education level up, We are here to help you keep focus when studying
+      </p>
+      <div class="social-icons">
+        <a href="#"><img src="assests/twitter.svg" alt="Social Icon 1"></a>
+        <a href="#"><img src="assests/insta.svg" alt="Social Icon 2"></a>
+        <a href="#"><img src="assests/yt.svg" alt="Social Icon 3"></a>
+        <a href="#"><img src="assests/fb.svg" alt="Social Icon 3"></a>
+        <a href="#"><img src="assests/tele.svg" alt="Social Icon 3"></a>
+      </div>
+    </div>
+    <div class="footer-links">
+      <div class="column">
+        <h3>IMPORTANT LINKS</h3>
+        <p>About Us</p>
+        <p>Contact Us</p>
+        <p>Career</p>
+      </div>
+      <div class="column">
+        <h3>KNOWLEDGE</h3>
+        <p>Blogs</p>
+        <p>Site Map</p>
+      </div>
+      <div class="column">
+        <h3>POLICIES</h3>
+        <p>Terms & Condition</p>
+        <p>Privacy Policy</p>
+        <p>Refund Policy</p>
+      </div>
+    </div>
+  </div>
+  <!-- Bottom Section -->
+  <div class="footer-bottom">
+    <hr />
+    <p>© 2024 All rights reserved Lurnigu PVT Ltd.</p>
+  </div>
+</footer>
+
+
+</html>
